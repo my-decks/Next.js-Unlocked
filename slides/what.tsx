@@ -17,13 +17,13 @@ function Ic({ n, s = 22, c = "currentColor", fill = false }: any) {
 function Frame({ kick, title, lead, children }: any) {
   return (
     <div style={{ position: "absolute", top: 96, left: 64, right: 64, bottom: 76, display: "flex", flexDirection: "column" }}>
-      <p style={{ font: "600 13px var(--fm)", letterSpacing: ".2em", textTransform: "uppercase", color: "var(--acc)", margin: 0, display: "flex", alignItems: "center", gap: 10 }}>
-        <i style={{ width: 9, height: 9, borderRadius: 2, background: "var(--acc)", display: "block" }} />
+      <p className="an up" style={{ font: "600 13px var(--fm)", letterSpacing: ".2em", textTransform: "uppercase", color: "var(--acc)", margin: 0, display: "flex", alignItems: "center", gap: 10 }}>
+        <i className="idle-pulse" style={{ width: 9, height: 9, borderRadius: 2, background: "var(--acc)", display: "block" }} />
         {kick}
       </p>
-      <h2 style={{ font: "700 42px/1.08 var(--fd)", letterSpacing: "-.03em", color: "var(--ink)", margin: "10px 0 0" }}>{title}</h2>
-      <div style={{ width: 64, height: 4, borderRadius: 2, marginTop: 14, background: "linear-gradient(90deg,var(--acc),var(--acc2))" }} />
-      {lead && <p style={{ font: "400 19px/1.5 var(--fb)", color: "var(--mut)", margin: "14px 0 0", maxWidth: 1000 }}>{lead}</p>}
+      <h2 className="an up d1" style={{ font: "700 42px/1.08 var(--fd)", letterSpacing: "-.03em", color: "var(--ink)", margin: "10px 0 0" }}>{title}</h2>
+      <div className="an bar d2" style={{ width: 64, height: 4, borderRadius: 2, marginTop: 14, overflow: "hidden" }}><div className="idle-sheen" style={{ width: "100%", height: "100%", borderRadius: 2, background: "linear-gradient(90deg,var(--acc),var(--acc2),var(--acc))" }} /></div>
+      {lead && <p className="an up d3" style={{ font: "400 19px/1.5 var(--fb)", color: "var(--mut)", margin: "14px 0 0", maxWidth: 1000 }}>{lead}</p>}
       <div style={{ flex: 1, minHeight: 0, marginTop: 22, display: "flex", flexDirection: "column" }}>{children}</div>
     </div>
   );
@@ -56,17 +56,17 @@ export default function Slide() {
   return (
     <Frame kick={"Foundation — 01"} title={"The React framework for the web."}><div style={{ display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: 44, alignItems: "start" }}>
         <div>
-          <p style={{ font: "400 21px/1.55 var(--fb)", color: "var(--mut)", margin: 0 }}>A full-stack React framework, built and maintained by Vercel — everything you need ships in the box. And every bit of your existing React knowledge still applies.</p>
-          <div style={{ display: "flex", gap: 12, marginTop: 26, flexWrap: "wrap" }}>
+          <p className="an up d4" style={{ font: "400 21px/1.55 var(--fb)", color: "var(--mut)", margin: 0 }}>A full-stack React framework, built and maintained by Vercel — everything you need ships in the box. And every bit of your existing React knowledge still applies.</p>
+          <div className="stag sc" style={{ display: "flex", gap: 12, marginTop: 26, flexWrap: "wrap" }}>
             <Chip icon={<Ic n="tri" s={13} fill />}>Built on React</Chip>
             <Chip ghost>Maintained by Vercel</Chip>
           </div>
-          <div style={{ marginTop: 30, paddingTop: 18, borderTop: "1px solid var(--line)" }}>
+          <div className="an up d8" style={{ marginTop: 30, paddingTop: 18, borderTop: "1px solid var(--line)" }}>
             <span style={{ display: "block", font: "500 12px var(--fm)", letterSpacing: ".18em", textTransform: "uppercase", color: "var(--mut)" }}>Powering production at</span>
             <span style={{ display: "block", font: "600 24px var(--fd)", color: "var(--ink)", marginTop: 8 }}>Netflix · TikTok · Twitch</span>
           </div>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}><Row ic="circle-check" h={"Production-Ready"}>{"Battle-tested at scale — the default choice for shipping React to the real world."}</Row><Row ic="layers" h={"Full-Stack"}>{"Routing, rendering, and API routes — front-end and back-end living in one project."}</Row><Row ic="wrench" h={"Opinionated"}>{"Sensible conventions decided for you — less time configuring, more time building."}</Row></div>
+        <div className="stag sb" style={{ display: "flex", flexDirection: "column", gap: 12 }}><Row ic="circle-check" h={"Production-Ready"}>{"Battle-tested at scale — the default choice for shipping React to the real world."}</Row><Row ic="layers" h={"Full-Stack"}>{"Routing, rendering, and API routes — front-end and back-end living in one project."}</Row><Row ic="wrench" h={"Opinionated"}>{"Sensible conventions decided for you — less time configuring, more time building."}</Row></div>
       </div>
     </Frame>
   );

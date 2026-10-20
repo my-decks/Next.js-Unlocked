@@ -52,3 +52,119 @@
   --tk-f: #9CDCFE; --tk-cm: #6A9955; --tk-tag: #4EC9B0;
 }
 #root { background: var(--bg); color: var(--ink); font-family: var(--fb); }
+
+/* ══════════════════════════════════════════════════════════════════
+   MOTION LAYER — entrances · one-by-one loading · fast typing · idle
+   Pure CSS. Opt-in classes only; slides without classes stay static.
+
+   .an + variant ......... single-element entrance (up/fade/left/right/
+                           pop/bar/blur), delays via .d1–.d12
+   .stag ................. container whose children land ONE BY ONE
+                           (start = --sd, step = --ss; .sb/.sc start later)
+   .tl / .tlw ............ fast per-line code typing (steps by char count)
+   .idle-* ............... ambient loops (float/pulse/spin/bob/nudge/
+                           sheen/text-sheen/glow/ring)
+   .cur .................. blinking terminal cursor
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Keyframes: entrances ── */
+@keyframes smRise   { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes smFade   { from { opacity: 0; } to { opacity: 1; } }
+@keyframes smLeft   { from { opacity: 0; transform: translateX(-38px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes smRight  { from { opacity: 0; transform: translateX(38px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes smPop    { 0% { opacity: 0; transform: scale(.78); } 62% { opacity: 1; transform: scale(1.05); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes smBar    { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes smBlurIn { from { opacity: 0; transform: translateY(22px) scale(.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes smTypeIn { from { clip-path: inset(-40% 106% -40% -2%); } to { clip-path: inset(-40% -8% -40% -2%); } }
+
+/* ── Keyframes: idle / ambient loops ── */
+@keyframes smFloat     { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes smPulse     { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.14); opacity: .75; } }
+@keyframes smSpin      { to { transform: rotate(360deg); } }
+@keyframes smBob       { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-2.4px) scale(1.06); } }
+@keyframes smNudge     { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+@keyframes smBlink     { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+@keyframes smSheen     { from { background-position: 220% 0; } to { background-position: -220% 0; } }
+@keyframes smTextSheen { from { background-position: 0% 50%; } to { background-position: 300% 50%; } }
+@keyframes smGlowPulse { 0%, 100% { box-shadow: 0 0 0 3px var(--acc-soft); } 50% { box-shadow: 0 0 0 3px var(--acc-soft), 0 0 26px color-mix(in srgb, var(--acc) 36%, transparent); } }
+@keyframes smRing      { 0%, 100% { box-shadow: 0 0 0 10px var(--acc-soft); } 50% { box-shadow: 0 0 0 18px var(--acc-soft); } }
+
+/* ── Entrance primitives ────────────────────────────────────────────
+   fill-mode: backwards → elements rest at their natural state after
+   landing, so hover transitions keep working afterwards. */
+.an { animation-duration: var(--du, .62s); animation-timing-function: cubic-bezier(.22, 1, .36, 1); animation-fill-mode: backwards; }
+.an.up    { animation-name: smRise; }
+.an.fade  { animation-name: smFade; animation-timing-function: ease-out; }
+.an.left  { animation-name: smLeft; }
+.an.right { animation-name: smRight; }
+.an.pop   { animation-name: smPop; animation-duration: var(--du, .58s); }
+.an.bar   { animation-name: smBar; transform-origin: left center; animation-duration: var(--du, .72s); }
+.an.blur  { animation-name: smBlurIn; animation-duration: var(--du, .85s); }
+
+/* absolute entrance delays */
+.d1 { animation-delay: .07s; }  .d2 { animation-delay: .14s; }  .d3 { animation-delay: .22s; }
+.d4 { animation-delay: .30s; }  .d5 { animation-delay: .38s; }  .d6 { animation-delay: .46s; }
+.d7 { animation-delay: .56s; }  .d8 { animation-delay: .66s; }  .d9 { animation-delay: .76s; }
+.d10 { animation-delay: .88s; } .d11 { animation-delay: 1s; }   .d12 { animation-delay: 1.12s; }
+
+/* ── One-by-one loading: staggered children ── */
+.stag > * { animation: smRise var(--du, .55s) cubic-bezier(.22, 1, .36, 1) backwards; }
+.stag > *:nth-child(1)  { animation-delay: var(--sd, .34s); }
+.stag > *:nth-child(2)  { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s)); }
+.stag > *:nth-child(3)  { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 2); }
+.stag > *:nth-child(4)  { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 3); }
+.stag > *:nth-child(5)  { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 4); }
+.stag > *:nth-child(6)  { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 5); }
+.stag > *:nth-child(7)  { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 6); }
+.stag > *:nth-child(8)  { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 7); }
+.stag > *:nth-child(9)  { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 8); }
+.stag > *:nth-child(10) { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 9); }
+.stag > *:nth-child(11) { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 10); }
+.stag > *:nth-child(12) { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 11); }
+.stag > *:nth-child(13) { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 12); }
+.stag > *:nth-child(14) { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 13); }
+.stag > *:nth-child(15) { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 14); }
+.stag > *:nth-child(16) { animation-delay: calc(var(--sd, .34s) + var(--ss, .085s) * 15); }
+.stag.poppy > * { animation-name: smPop; animation-duration: var(--du, .5s); }
+/* later waves: add .sb / .sc to the container */
+.sb { --sd: .55s; }
+.sc { --sd: .72s; }
+
+/* hover interactivity for landing cards/rows (works after entrance) */
+.stag > * { transition: transform .35s cubic-bezier(.22, 1, .36, 1), border-color .35s ease, box-shadow .35s ease; }
+.stag > *:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--acc) 52%, transparent); box-shadow: 0 16px 32px -16px color-mix(in srgb, var(--acc) 42%, transparent); }
+[data-theme="dark"] .stag > *:hover { box-shadow: 0 16px 32px -16px rgba(0, 0, 0, .65); }
+
+/* ── Fast code typing (per line) ──
+   .tlw: block line wrapper · .tl: shrink-to-fit line that wipes in with
+   steps(--n) → uniform ~--tms per character (fast).
+   Base state is fully revealed; fill-mode: backwards hides each line
+   during its delay, then the keyframes wipe it in. */
+.tlw { display: block; white-space: pre; }
+.tl  { display: inline-block; min-width: 1ch; white-space: pre; animation: smTypeIn calc(var(--n, 24) * var(--tms, 12ms)) steps(var(--n, 24), end) var(--d, 0s) backwards; }
+
+/* terminal cursor */
+.cur { animation: smBlink 1.05s steps(1) infinite; }
+
+/* ── Idle / ambient utilities ── */
+.idle-float      { animation: smFloat 5.2s ease-in-out infinite; }
+.idle-pulse      { animation: smPulse 2.7s ease-in-out infinite; }
+.idle-spin       { transform-box: fill-box; transform-origin: center; animation: smSpin 22s linear infinite; }
+.idle-bob        { animation: smBob 3.6s ease-in-out infinite; }
+.idle-nudge      { animation: smNudge 2.1s ease-in-out infinite; }
+.idle-sheen      { background-size: 220% 100%; animation: smSheen 4.2s ease-in-out infinite; }
+.idle-text-sheen { background-size: 240% 100%; animation: smTextSheen 6s ease-in-out infinite; }
+.idle-glow       { animation: smGlowPulse 3.2s ease-in-out infinite; }
+.idle-ring       { animation: smRing 3.4s ease-in-out infinite; }
+
+/* Microsoft squares: gentle staggered bob (tag rects with .msq) */
+.msq { transform-box: fill-box; transform-origin: center; animation: smBob 3.2s ease-in-out infinite; }
+.msq:nth-of-type(2) { animation-delay: .25s; }
+.msq:nth-of-type(3) { animation-delay: .5s; }
+.msq:nth-of-type(4) { animation-delay: .75s; }
+
+/* ── Accessibility: respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .tl, .an, .stag > * { opacity: 1 !important; clip-path: none !important; }
+}

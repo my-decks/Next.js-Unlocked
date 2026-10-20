@@ -12,6 +12,7 @@ function Frame({ kick, title, lead, children }: any) {
       }}
     >
       <p
+        className="an up"
         style={{
           font: "600 13px var(--fm)",
           letterSpacing: ".2em",
@@ -24,6 +25,7 @@ function Frame({ kick, title, lead, children }: any) {
         }}
       >
         <i
+          className="idle-pulse"
           style={{
             width: 9,
             height: 9,
@@ -35,6 +37,7 @@ function Frame({ kick, title, lead, children }: any) {
         {kick}
       </p>
       <h2
+        className="an up d1"
         style={{
           font: "700 42px/1.08 var(--fd)",
           letterSpacing: "-.03em",
@@ -45,14 +48,25 @@ function Frame({ kick, title, lead, children }: any) {
         {title}
       </h2>
       <div
+        className="an bar d2"
         style={{
           width: 64,
           height: 4,
           borderRadius: 2,
           marginTop: 14,
-          background: "linear-gradient(90deg,var(--acc),var(--acc2))",
+          overflow: "hidden",
         }}
-      />
+      >
+        <div
+          className="idle-sheen"
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: 2,
+            background: "linear-gradient(90deg,var(--acc),var(--acc2),var(--acc))",
+          }}
+        />
+      </div>
       {lead && (
         <p
           style={{
@@ -77,7 +91,7 @@ function Frame({ kick, title, lead, children }: any) {
 export default function Slide() {
   return (
     <Frame kick={"What We'll Cover"} title={"Today's agenda."}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+      <div className="stag" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
         <div
           style={{
             display: "flex",

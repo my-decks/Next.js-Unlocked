@@ -73,6 +73,7 @@ function Frame({ kick, title, lead, children }: any) {
       }}
     >
       <p
+        className="an up"
         style={{
           font: "600 13px var(--fm)",
           letterSpacing: ".2em",
@@ -85,6 +86,7 @@ function Frame({ kick, title, lead, children }: any) {
         }}
       >
         <i
+          className="idle-pulse"
           style={{
             width: 9,
             height: 9,
@@ -96,6 +98,7 @@ function Frame({ kick, title, lead, children }: any) {
         {kick}
       </p>
       <h2
+        className="an up d1"
         style={{
           font: "700 42px/1.08 var(--fd)",
           letterSpacing: "-.03em",
@@ -106,14 +109,25 @@ function Frame({ kick, title, lead, children }: any) {
         {title}
       </h2>
       <div
+        className="an bar d2"
         style={{
           width: 64,
           height: 4,
           borderRadius: 2,
           marginTop: 14,
-          background: "linear-gradient(90deg,var(--acc),var(--acc2))",
+          overflow: "hidden",
         }}
-      />
+      >
+        <div
+          className="idle-sheen"
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: 2,
+            background: "linear-gradient(90deg,var(--acc),var(--acc2),var(--acc))",
+          }}
+        />
+      </div>
       {lead && (
         <p
           style={{
@@ -205,27 +219,30 @@ export default function Slide() {
           flex: 1,
         }}
       >
-        <div
-          style={{
-            width: 210,
-            height: 210,
-            borderRadius: "50%",
-            display: "grid",
-            placeItems: "center",
-            border: "2px solid var(--acc)",
-            background: "var(--acc-soft)",
-            boxShadow: "0 0 0 10px var(--acc-soft)",
-            justifySelf: "center",
-          }}
-        >
-          <span
-            style={{ font: "600 78px var(--fm)", letterSpacing: "-.05em", color: "var(--acc)" }}
+        <div className="an pop d4" style={{ justifySelf: "center" }}>
+          <div
+            className="idle-ring"
+            style={{
+              width: 210,
+              height: 210,
+              borderRadius: "50%",
+              display: "grid",
+              placeItems: "center",
+              border: "2px solid var(--acc)",
+              background: "var(--acc-soft)",
+              boxShadow: "0 0 0 10px var(--acc-soft)",
+            }}
           >
-            YN
-          </span>
+            <span
+              style={{ font: "600 78px var(--fm)", letterSpacing: "-.05em", color: "var(--acc)" }}
+            >
+              YN
+            </span>
+          </div>
         </div>
         <div>
           <h3
+            className="an up d5"
             style={{
               font: "700 38px var(--fd)",
               letterSpacing: "-.03em",
@@ -235,11 +252,11 @@ export default function Slide() {
           >
             Your Name
           </h3>
-          <p style={{ font: "400 18px var(--fb)", color: "var(--mut)", margin: "4px 0 14px" }}>
+          <p className="an up d6" style={{ font: "400 18px var(--fb)", color: "var(--mut)", margin: "4px 0 14px" }}>
             Microsoft Learn Student Ambassador ·{" "}
             <b style={{ color: "var(--ink)" }}>Web &amp; Cloud enthusiast</b>
           </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 9 }}>
+          <div className="stag sb" style={{ display: "flex", flexDirection: "column", gap: 9 }}>
             <Row pad="11px 16px" ic="grad" h="Studying Computer Science">
               Your University, Year 3 — focused on web engineering and developer communities.
             </Row>
@@ -250,12 +267,13 @@ export default function Slide() {
               Hosting workshops like this one — and always up for a chat about the web.
             </Row>
           </div>
-          <div style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}>
+          <div className="stag sc" style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}>
             <Chip icon={<Ic n="at" s={14} />}>github.com/yourhandle</Chip>
             <Chip icon={<Ic n="link" s={14} />}>linkedin.com/in/yourhandle</Chip>
             <Chip icon={<Ic n="mail" s={14} />}>your@email.dev</Chip>
           </div>
           <p
+            className="an up d8"
             style={{
               display: "flex",
               alignItems: "center",
@@ -267,6 +285,10 @@ export default function Slide() {
           >
             <Ic n="terminal" s={17} c="var(--acc)" />$ echo "Ask me anything — before, during, or
             after the talk."
+            <span
+              className="cur"
+              style={{ display: "inline-block", width: 9, height: 16, background: "var(--acc)", marginLeft: 2 }}
+            />
           </p>
         </div>
       </div>

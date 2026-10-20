@@ -1,13 +1,13 @@
 function Frame({ kick, title, lead, children }: any) {
   return (
     <div style={{ position: "absolute", top: 96, left: 64, right: 64, bottom: 76, display: "flex", flexDirection: "column" }}>
-      <p style={{ font: "600 13px var(--fm)", letterSpacing: ".2em", textTransform: "uppercase", color: "var(--acc)", margin: 0, display: "flex", alignItems: "center", gap: 10 }}>
-        <i style={{ width: 9, height: 9, borderRadius: 2, background: "var(--acc)", display: "block" }} />
+      <p className="an up" style={{ font: "600 13px var(--fm)", letterSpacing: ".2em", textTransform: "uppercase", color: "var(--acc)", margin: 0, display: "flex", alignItems: "center", gap: 10 }}>
+        <i className="idle-pulse" style={{ width: 9, height: 9, borderRadius: 2, background: "var(--acc)", display: "block" }} />
         {kick}
       </p>
-      <h2 style={{ font: "700 42px/1.08 var(--fd)", letterSpacing: "-.03em", color: "var(--ink)", margin: "10px 0 0" }}>{title}</h2>
-      <div style={{ width: 64, height: 4, borderRadius: 2, marginTop: 14, background: "linear-gradient(90deg,var(--acc),var(--acc2))" }} />
-      {lead && <p style={{ font: "400 19px/1.5 var(--fb)", color: "var(--mut)", margin: "14px 0 0", maxWidth: 1000 }}>{lead}</p>}
+      <h2 className="an up d1" style={{ font: "700 42px/1.08 var(--fd)", letterSpacing: "-.03em", color: "var(--ink)", margin: "10px 0 0" }}>{title}</h2>
+      <div className="an bar d2" style={{ width: 64, height: 4, borderRadius: 2, marginTop: 14, overflow: "hidden" }}><div className="idle-sheen" style={{ width: "100%", height: "100%", borderRadius: 2, background: "linear-gradient(90deg,var(--acc),var(--acc2),var(--acc))" }} /></div>
+      {lead && <p className="an up d3" style={{ font: "400 19px/1.5 var(--fb)", color: "var(--mut)", margin: "14px 0 0", maxWidth: 1000 }}>{lead}</p>}
       <div style={{ flex: 1, minHeight: 0, marginTop: 22, display: "flex", flexDirection: "column" }}>{children}</div>
     </div>
   );
@@ -36,6 +36,6 @@ function Chip({ children, ghost, icon }: any) {
 
 export default function Slide() {
   return (
-    <Frame kick={"Troubleshooting"} title={"Common pitfalls."} lead={"What usually goes wrong during the first hour."}><div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 18 }}><Phase n="01" h={"Hooks on the server"}>{"Add \"use client\" when using useState or events."}</Phase><Phase n="02" h={"Wrong file name"}>{"Routes need page.tsx; APIs need route.ts."}</Phase><Phase n="03" h={"Stale data"}>{"Fetch is cached — set cache or revalidate."}</Phase><Phase n="04" h={"Port in use"}>{"Stop the old dev server or run with -p 3001."}</Phase></div></Frame>
+    <Frame kick={"Troubleshooting"} title={"Common pitfalls."} lead={"What usually goes wrong during the first hour."}><div className="stag sb" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 18 }}><Phase n="01" h={"Hooks on the server"}>{"Add \"use client\" when using useState or events."}</Phase><Phase n="02" h={"Wrong file name"}>{"Routes need page.tsx; APIs need route.ts."}</Phase><Phase n="03" h={"Stale data"}>{"Fetch is cached — set cache or revalidate."}</Phase><Phase n="04" h={"Port in use"}>{"Stop the old dev server or run with -p 3001."}</Phase></div></Frame>
   );
 }
