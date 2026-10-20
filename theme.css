@@ -1,0 +1,54 @@
+/* Microsoft Learn Student Ambassadors — Next.js Unlocked
+   Blue/white, Segoe UI. Light is the default look; dark overrides on [data-theme="dark"]. */
+:root,
+[data-theme="light"] {
+  --acc: #0078D4;
+  --acc2: #38BDF8;
+  --acc-soft: rgba(0, 120, 212, 0.10);
+  --ink: #201F1E;
+  --ink2: #201F1E;
+  --mut: #5B5A58;
+  --line: #D5DEEA;
+  --card: #FFFFFF;
+  --card2: rgba(255, 255, 255, 0.6);
+  --bg: #F7F9FC;
+  --grid: rgba(0, 120, 212, 0.09);
+  --glow: rgba(0, 120, 212, 0.10);
+  --glow2: rgba(56, 189, 248, 0.08);
+  --chip-bd: rgba(0, 120, 212, 0.30);
+  --chip-fg: #005A9E;
+  --ok: #107C10;
+  --err: #D13438;
+  --react: #149ACC;
+  --code: #F8FAFD;
+  --tk-k: #0000FF; --tk-str: #A31515; --tk-d: #795E26;
+  --tk-f: #001080; --tk-cm: #008000; --tk-tag: #800000;
+  --fd: 'Segoe UI Variable Display', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, 'Helvetica Neue', sans-serif;
+  --fb: 'Segoe UI Variable Text', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, 'Helvetica Neue', sans-serif;
+  --fm: 'Cascadia Code', 'Cascadia Mono', Consolas, 'SF Mono', ui-monospace, monospace;
+  --fbrand: 'Segoe UI', Georgia, serif;
+}
+[data-theme="dark"] {
+  --acc: #4CC2FF;
+  --acc2: #99E0FF;
+  --acc-soft: rgba(76, 194, 255, 0.14);
+  --ink: #F3F2F1;
+  --ink2: #F3F2F1;
+  --mut: #B8B6B3;
+  --line: #3A3836;
+  --card: #252423;
+  --card2: rgba(255, 255, 255, 0.03);
+  --bg: #1B1A19;
+  --grid: rgba(76, 194, 255, 0.08);
+  --glow: rgba(76, 194, 255, 0.09);
+  --glow2: rgba(153, 224, 255, 0.05);
+  --chip-bd: rgba(76, 194, 255, 0.35);
+  --chip-fg: #9AD6F9;
+  --ok: #89D180;
+  --err: #F1707B;
+  --react: #61DAFB;
+  --code: #1E1E1E;
+  --tk-k: #569CD6; --tk-str: #CE9178; --tk-d: #DCDCAA;
+  --tk-f: #9CDCFE; --tk-cm: #6A9955; --tk-tag: #4EC9B0;
+}
+#root { background: var(--bg); color: var(--ink); font-family: var(--fb); }
