@@ -252,7 +252,10 @@ export default function Slide() {
           >
             Your Name
           </h3>
-          <p className="an up d6" style={{ font: "400 18px var(--fb)", color: "var(--mut)", margin: "4px 0 14px" }}>
+          <p
+            className="an up d6"
+            style={{ font: "400 18px var(--fb)", color: "var(--mut)", margin: "4px 0 14px" }}
+          >
             Microsoft Learn Student Ambassador ·{" "}
             <b style={{ color: "var(--ink)" }}>Web &amp; Cloud enthusiast</b>
           </p>
@@ -267,7 +270,10 @@ export default function Slide() {
               Hosting workshops like this one — and always up for a chat about the web.
             </Row>
           </div>
-          <div className="stag sc" style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}>
+          <div
+            className="stag sc"
+            style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}
+          >
             <Chip icon={<Ic n="at" s={14} />}>github.com/yourhandle</Chip>
             <Chip icon={<Ic n="link" s={14} />}>linkedin.com/in/yourhandle</Chip>
             <Chip icon={<Ic n="mail" s={14} />}>your@email.dev</Chip>
@@ -287,7 +293,13 @@ export default function Slide() {
             after the talk."
             <span
               className="cur"
-              style={{ display: "inline-block", width: 9, height: 16, background: "var(--acc)", marginLeft: 2 }}
+              style={{
+                display: "inline-block",
+                width: 9,
+                height: 16,
+                background: "var(--acc)",
+                marginLeft: 2,
+              }}
             />
           </p>
         </div>
