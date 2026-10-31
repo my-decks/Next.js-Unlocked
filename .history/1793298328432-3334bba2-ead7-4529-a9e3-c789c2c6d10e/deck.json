@@ -1,0 +1,135 @@
+{
+  "format": "smdeck",
+  "format_version": 1,
+  "id": "imported-project",
+  "title": "Next.js Unlocked — Part 1: Concepts",
+  "created": "2026-10-20T17:33:37.037Z",
+  "modified": "2026-10-29T18:25:27.469Z",
+  "settings": {
+    "size": [
+      1280,
+      720
+    ],
+    "defaultMode": "dark",
+    "transitionMs": 220,
+    "bgCrossfadeMs": 1600
+  },
+  "bg": {
+    "type": "image",
+    "path": "assets/bg.png"
+  },
+  "overlay": {
+    "type": "code",
+    "path": "overlay/MSA.tsx"
+  },
+  "slides": [
+    {
+      "id": "title",
+      "label": "Title",
+      "bg": {
+        "type": "code",
+        "path": "bg/SilkWaves.tsx"
+      }
+    },
+    {
+      "id": "presenter",
+      "label": "Presenter"
+    },
+    {
+      "id": "agenda",
+      "label": "Agenda"
+    },
+    {
+      "id": "what",
+      "label": "What is Next.js?"
+    },
+    {
+      "id": "react",
+      "label": "Did you know about React?"
+    },
+    {
+      "id": "libfw",
+      "label": "Library vs. Framework"
+    },
+    {
+      "id": "csr",
+      "label": "How React Works — CSR"
+    },
+    {
+      "id": "ssr",
+      "label": "What is SSR?"
+    },
+    {
+      "id": "vs",
+      "label": "React vs. Next.js"
+    },
+    {
+      "id": "features",
+      "label": "New Features in Next.js 13+"
+    },
+    {
+      "id": "approuter",
+      "label": "Deep Dive: The App Router"
+    },
+    {
+      "id": "routing",
+      "label": "Folder-Based Routing Variants"
+    },
+    {
+      "id": "rsc",
+      "label": "Deep Dive: Server Components"
+    },
+    {
+      "id": "data",
+      "label": "Deep Dive: Data Fetching"
+    },
+    {
+      "id": "cmd",
+      "label": "create-next-app: The Command"
+    },
+    {
+      "id": "result",
+      "label": "create-next-app: The Result"
+    },
+    {
+      "id": "files",
+      "label": "File Structure Overview"
+    },
+    {
+      "id": "run",
+      "label": "Run the Dev Server"
+    },
+    {
+      "id": "demo",
+      "label": "Live Demo — Five Phases"
+    },
+    {
+      "id": "d12",
+      "label": "Demo 1–2: Run & Route"
+    },
+    {
+      "id": "d3",
+      "label": "Demo 3: Interactivity"
+    },
+    {
+      "id": "d45",
+      "label": "Demo 4–5: API & Fetch"
+    },
+    {
+      "id": "pitfalls",
+      "label": "Common Pitfalls"
+    },
+    {
+      "id": "recap",
+      "label": "Recap & Key Takeaways"
+    },
+    {
+      "id": "resources",
+      "label": "Resources & Next Steps"
+    },
+    {
+      "id": "end",
+      "label": "End"
+    }
+  ]
+}
